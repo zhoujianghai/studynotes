@@ -1,0 +1,6 @@
+#!/bin/bash
+
+for day in SUN MON TUE WES
+do
+	echo ${day}
+done

@@ -1,0 +1,21 @@
+#!/bin/sh
+
+a=$1
+b=$2
+
+if [ -z $a ] || [ -z $b ]
+   then echo "please input 2 number"
+   exit 1
+fi
+
+if [ $a -eq $b ]
+  then
+   echo "var1 equals var2"
+else if [ $a -gt $b ]
+	then
+	  echo "var1 big than var2"
+  	elif [ $a -lt $b ]
+	then
+	  echo "var1 small than var2"
+     fi
+fi

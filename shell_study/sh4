@@ -1,0 +1,11 @@
+#!/bin/sh
+hello="alex"
+echo ${hello}
+
+func()
+{
+   local hello="zhou"
+   echo ${hello}
+}
+func
+echo ${hello}

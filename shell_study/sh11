@@ -1,0 +1,35 @@
+#!/bin/bash
+
+a=$1
+b=$2
+echo "$a **  $b"
+if [ "$a" = "" ] || [ "$b" = "" ]
+then
+    echo "please enter 2 num"
+    exit 1
+fi
+
+if [ ! -e $a ]
+ then 
+    echo "$a have not exists"
+    exit 1
+fi
+
+#check the file aleardy exists
+if [ -e $b ]
+then
+   echo "the file $b aleardy exists"
+   until [ ! -f $b ]
+  do
+  	sleep 1
+  done
+  echo "the file $b have been deleted"
+fi
+
+#mv XX XX return false if mv success
+if [ ! `mv $a $b` ] 
+then
+   echo "move success"
+   else 
+   echo "move failed"
+fi

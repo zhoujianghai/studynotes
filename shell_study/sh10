@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo "please enter number"
+
+read n
+rev=""
+on=$n
+sd=0
+echo "you enter number: ${n}"
+while [ $n -gt 0 ]
+do
+	sd=$(( $n % 10 ))
+	n=$(( $n / 10 ))
+	rev=$rev$sd
+done
+echo "${no} in a reverse order ${rev}"

@@ -1,0 +1,21 @@
+#include <unistd.h>
+#include <sys/type.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+#define FIFO_SERVER "/myfifo"
+
+int main(int argc,char **argv)
+{
+	innt fd;
+	char buf_w[100];
+	int num_w;
+
+	if(mkfifo(FIFO_SERVER,O_CREAT | O_EXCL | O_RDWR) < 0 && (errno != EEXIST))
+	{
+		printf("create fifoserver failure\n");	
+		exit(EXIT_FAILURE);
+	}
+	
+}

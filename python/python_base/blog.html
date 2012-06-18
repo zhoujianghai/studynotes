@@ -1,0 +1,68 @@
+"=========== Meta ============
+"StrID : 208
+"Title : python安装Image模块和解决jpeg not available问题
+"Cats  : python
+"Tags  : Image, jpeg not available, python
+"========== Content ==========
+使用python来处理图片是非常方便的，下面提供一小段python改变图片大小的代码
+[python]
+#!/usr/local/bin/python
+
+import Image
+
+def resize_img(path):
+    img = Image.open(path)
+    (x,y) = img.size
+    print x,y
+    new_x = x / 2
+    new_y = y * new_x / x
+    #Image.ANTIALIAS:反锯齿，提高图像画质
+    out = img.resize((new_x,new_y),Image.ANTIALIAS)
+    out.save(path)
+
+
+if __name__ == '__main__':
+    path = '/home/zhoujh/1.jpg'
+    resize_img(path)
+[/python]
+
+<br />
+运行该程序的时候出现了下面两个问题
+<h4>ImportError: No module named Image</h4>
+解决办法：安装Python Imaging Library(PIL)
+[shell]
+sudo easy_install PIL
+[/shell]
+安装PIL出现：
+--- JPEG support not available
+
+<br />
+此时执行程序会出现：
+<h4>IOError: decoder jpeg not available</h4>
+解决办法：
+(1) 删除已经安装的PIL
+[shell]
+sudo rm -rf /usr/local/lib/python2.6/site-packages/PIL-1.1.7-py2.6-linux-x86_64.egg/
+[/shell]
+
+<br />
+(2) 安装jpeg库
+ubuntu11.10下：
+[shell]
+sudo apt-get install libjpeg-dev
+sudo ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib/libjpeg.so
+[/shell]
+fedora14下：
+[shell]
+sudo yum install libjpeg-devel
+sudo ln -s /usr/lib64/libjpeg.so /usr/lib/libjpeg.so
+[/shell]
+
+<br />
+(3) 重新安装PIL
+[shell]
+sudo easy_install PIL
+[/shell]
+会出现：
+--- JPEG support available
+说明已经ok了

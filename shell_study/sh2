@@ -1,0 +1,7 @@
+#!/bin/sh
+echo "number of vars:"$#
+echo "values of vars:"$*
+echo "value of v0:"$0
+echo "value of v1:"$1
+echo "value of v2:"$2
+echo "value of v3:"$3

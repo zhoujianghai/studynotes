@@ -1,0 +1,4 @@
+#!/bin/sh
+echo "my name is alexzhou!"
+num=3
+echo "the num is ${num}nd"

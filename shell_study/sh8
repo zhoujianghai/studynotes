@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "hit a key,it will return"
+read keypress
+
+case "$keypress" in
+[A-Z]) echo "Uppercase";;
+[a-z]) echo "lowercase";;
+[0-9]) echo "digit";;
+*) echo "other";;
+esac
