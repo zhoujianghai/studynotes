@@ -141,7 +141,7 @@ const Running = async (Widget, default_args = "") => {
 
 
 let DEPENDENCIES = [
-    'jsencrypt_mini.js' //本地化加密
+    'jsencrypt.js' //本地化加密
 ];
 
 let WIDGET_FONT = 'SF UI Display';
