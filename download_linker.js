@@ -1,7 +1,7 @@
 const FILE_MGR = FileManager[module.filename.includes('Documents/iCloud~') ? 'iCloud' : 'local']();
 let files = FILE_MGR.listContents(FILE_MGR.documentsDirectory());
 await Promise.all(    
-    ['bmw_linker_mini.js'].map(async (js) => {        
+    ['bmw_linker.js'].map(async (js) => {        
     const REQ = new Request(`https://cdn.jsdelivr.net/gh/zhoujianghai/studynotes/${encodeURIComponent(js)}`);        
     const RES = await REQ.load();        
     try {            
