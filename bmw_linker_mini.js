@@ -102,13 +102,11 @@ const Running = async (Widget, default_args = "") => {
   let M = null
   // 判断hash是否和当前设备匹配
   if (config.runsInWidget) {
-    this.notify("test","执行了1")
     M = new Widget(args.widgetParameter || '')
     const W = await M.render()
     Script.setWidget(W)
     Script.complete()
   } else {
-    this.notify("test","执行了2")
     let { act, data, __arg, __size } = args.queryParameters
     M = new Widget(__arg || default_args || '')
     if (__size) M.init(__size)
@@ -638,6 +636,7 @@ class Widget extends Base {
     }
 
     async render() {
+        this.notify("test","执行了2")
         // check all dependencies
         await this.checkDependencies();
 
