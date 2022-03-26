@@ -315,6 +315,9 @@ class Widget extends Base {
     }
 
     async userLoginCredentials() {
+
+        await this.checkDependencies();
+
         const userLoginAlert = new Alert();
         userLoginAlert.title = 'My BMW登录';
         userLoginAlert.message = '配置My BMW账号密码';
