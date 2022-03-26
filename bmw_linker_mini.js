@@ -636,7 +636,6 @@ class Widget extends Base {
     }
 
     async render() {
-        this.notify("test","执行了2")
         // check all dependencies
         await this.checkDependencies();
 
